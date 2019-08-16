@@ -10,4 +10,6 @@ public class LogApplication {
         SpringApplication.run(LogApplication.class, args);
     }
 
+
+
 }
