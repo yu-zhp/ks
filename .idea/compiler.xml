@@ -11,15 +11,15 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ks" target="1.5" />
-      <module name="ks-log" target="1.5" />
-      <module name="ks-support" target="1.5" />
+      <module name="ks" target="1.8" />
+      <module name="ks-log" target="1.8" />
+      <module name="ks-support" target="1.8" />
       <module name="log" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ks-log" options="" />
+      <module name="ks-log" options="-parameters" />
       <module name="log" options="-parameters" />
     </option>
   </component>
