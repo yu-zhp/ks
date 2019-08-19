@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: ks-log
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+server:
+  port: 8081
