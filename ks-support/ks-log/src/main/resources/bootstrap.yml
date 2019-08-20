@@ -5,6 +5,15 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        #nacos配置命名空间限制
+        # DEV
+        namespace: ae2e988c-6d23-4009-86ad-09023c9bf12f
+        # TEST
+#        namespace: cb2ca3e8-eaa9-41bd-a486-c0763da17bb4
+        # PROD
+#        namespace: 5404de43-150f-4d4f-9ff0-c1e899b596be
 
 server:
   port: 8082

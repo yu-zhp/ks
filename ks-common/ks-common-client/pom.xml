@@ -9,23 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ks-common-core</artifactId>
+    <artifactId>ks-common-client</artifactId>
 
     <dependencies>
-
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.ks</groupId>
+            <artifactId>ks-common-core</artifactId>
+            <version>${common.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
+            <groupId>org.ks</groupId>
+            <artifactId>ks-common-util</artifactId>
+            <version>${common.version}</version>
         </dependency>
     </dependencies>
 </project>

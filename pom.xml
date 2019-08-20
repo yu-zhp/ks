@@ -19,6 +19,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <common.version>1.0-SNAPSHOT</common.version>
     </properties>
 
     <!--  模块集成  -->
@@ -30,6 +31,7 @@
     <!-- 项目相关的所有依赖，这里只在顶层POM做声明，具体引入细节在子项目中自行引入 -->
     <dependencyManagement>
         <dependencies>
+            <!--  spring-cloud 版本声明  -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -37,6 +39,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!--  spring-cloud-alibaba 版本声明  -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -44,6 +48,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!--  json处理 alibaba fastjson  -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.56</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
