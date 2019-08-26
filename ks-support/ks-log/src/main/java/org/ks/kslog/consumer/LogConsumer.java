@@ -31,13 +31,12 @@ public class LogConsumer {
     public void receiveLogMessage(ConsumerRecord<?,?> consumerRecord) {
         //判断是否为null
         Optional<?> kafkaMessage = Optional.ofNullable(consumerRecord.value());
-        log.info(">>>>>>>>>> record =");
+//        log.info(">>>>>>>>>> record =");
         if (kafkaMessage.isPresent()) {
             //得到Optional实例中的值
             Object message = kafkaMessage.get();
-
+            //保存日志操作
             logService.saveLog(message);
-
             System.err.println("消费消息:" + message);
         }
 

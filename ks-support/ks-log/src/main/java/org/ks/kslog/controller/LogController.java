@@ -1,14 +1,12 @@
 package org.ks.kslog.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.protocol.types.Field;
 import org.ks.kslog.entity.LogInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import util.StringUtils;
 
 import java.util.Date;
 
@@ -22,7 +20,7 @@ import java.util.Date;
 
 @Slf4j
 @RestController
-//@RequestMapping("/log")
+@RequestMapping("/log")
 public class LogController {
 
     @Autowired
@@ -37,5 +35,13 @@ public class LogController {
 
         mongoTemplate.save(logInfo);
         return message;
+    }
+
+    /**
+     * todo 查询日志列表
+     */
+    @GetMapping("selectLogList")
+    public void selectLogList(){
+
     }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <jmxConfigurator/>
+
+    <springProperty scope="context" name="applicationName" source="spring.application.name"/>
+
+    <!--    <appender name="rocketmqAppender" class="com.neusoft.common.log.logback.appender.RocketmqLogbackAppender">-->
+    <!--        <tag>log</tag>-->
+    <!--        <topic>log</topic>-->
+    <!--        <producerGroup>log</producerGroup>-->
+    <!--        <nameServerAddress>10.9.25.24:9876</nameServerAddress>-->
+    <!--        <applicationName>${applicationName}</applicationName>-->
+    <!--    </appender>-->
+
+    <!--    <appender name="mqAsyncAppender" class="ch.qos.logback.classic.AsyncAppender">-->
+    <!--        <queueSize>1024</queueSize>-->
+    <!--        <discardingThreshold>80</discardingThreshold>-->
+    <!--        <maxFlushTime>2000</maxFlushTime>-->
+    <!--        <neverBlock>true</neverBlock>-->
+    <!--        <appender-ref ref="rocketmqAppender"/>-->
+    <!--    </appender>-->
+
+    <appender name="kafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+
+        <!--        <filter class="com.xx.xx.xx.filter.LogKafkaFilter"/>-->
+
+        <!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+        <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+        <!--            <charset>utf8</charset>-->
+        <!--        </encoder>-->
+
+        <!--    JSON格式输出日志    -->
+        <!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+        <!--            <pattern>-->
+        <!--            {-->
+        <!--                "microService":"${applicationName}",-->
+        <!--                "logLevel":"%-5level",-->
+        <!--                "threadName":"[%thread]",-->
+        <!--                "logName":"%logger{50}",-->
+        <!--                "logMessage":"%msg%n",-->
+        <!--                "time":"%d{yyyy-MM-dd HH:mm:ss.SSS}"-->
+        <!--                }-->
+        <!--            </pattern>-->
+        <!--            <charset>utf8</charset>-->
+        <!--        </encoder>-->
+        <encoder class="org.ks.common.core.log.KsJsonEncode">
+            <pattern>%msg%n</pattern> <!-- 这边随便写,encode已经被重写 -->
+            <charset>utf8</charset>
+            <microService>${applicationName}</microService>
+        </encoder>
+        <topic>ks-log</topic>
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy"/>
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy"/>
+
+        <!--注意此处应该是spring boot中的kafka配置属性-->
+        <producerConfig>bootstrap.servers=127.0.0.1:9092</producerConfig>
+        <!--    	设置大于0的值将使客户端重新发送任何数据，一旦这些数据发送失败    -->
+        　　　　
+        <producerConfig>retries=0</producerConfig>
+        　　　　
+        <producerConfig>batch-size=16384</producerConfig>
+        　　　　
+        <producerConfig>buffer-memory=33554432</producerConfig>
+        　　　　
+        <producerConfig>properties.max.request.size==2097152</producerConfig>
+    </appender>
+
+
+    <root level="info">
+        <appender-ref ref="kafkaAppender"/>
+    </root>
+
+</configuration>
