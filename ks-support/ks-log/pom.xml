@@ -13,7 +13,7 @@
     <artifactId>ks-log</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ks-log</name>
-    <description>Demo project for Spring Boot</description>
+    <description>基于消息中间件Kafka的日志系统</description>
 
     <dependencies>
         <dependency>
@@ -33,9 +33,28 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
+<!--        -->
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+<!---->
+
+        <dependency>
+            <groupId>org.ks</groupId>
+            <artifactId>ks-common-client</artifactId>
+            <version>${common.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
