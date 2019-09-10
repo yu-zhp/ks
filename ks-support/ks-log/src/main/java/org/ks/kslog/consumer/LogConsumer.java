@@ -31,7 +31,6 @@ public class LogConsumer {
     public void receiveLogMessage(ConsumerRecord<?,?> consumerRecord) {
         //判断是否为null
         Optional<?> kafkaMessage = Optional.ofNullable(consumerRecord.value());
-//        log.info(">>>>>>>>>> record =");
         if (kafkaMessage.isPresent()) {
             //得到Optional实例中的值
             Object message = kafkaMessage.get();

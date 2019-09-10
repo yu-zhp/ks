@@ -49,4 +49,9 @@ public class LogInfo implements Serializable {
      */
     private Date time;
 
+    /**
+     * 异常信息
+     */
+    private String throwable;
+
 }
