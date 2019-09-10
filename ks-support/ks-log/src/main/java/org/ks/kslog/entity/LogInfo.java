@@ -61,4 +61,10 @@ public class LogInfo implements Serializable {
     @Field("time")
     private Date time;
 
+    /**
+     * 异常信息
+     */
+    @Field("throwable")
+    private String throwable;
+
 }

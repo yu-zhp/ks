@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @ClassName: LogServiceImpl
  * @Description:
@@ -27,5 +29,10 @@ public class LogServiceImpl implements LogService {
 
         LogInfo logInfo = JSON.parseObject(String.valueOf(message),LogInfo.class);
         mongoTemplate.save(logInfo);
+    }
+
+    @Override
+    public List<LogInfo> selectLogList() {
+        return mongoTemplate.findAll(LogInfo.class);
     }
 }
