@@ -4,7 +4,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: mse-deae08a3-p.nacos-ans.mse.aliyuncs.com:8848
       config:
         server-addr: localhost:8848
         #nacos配置命名空间限制
