@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -23,7 +24,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/log")
+@RequestMapping("/ks/log")
 public class LogController {
 
     @Autowired
@@ -48,11 +49,22 @@ public class LogController {
      */
     @GetMapping("selectLogList")
     public ResultData selectLogList(){
-        log.error("cs",new Exception("cs xinxi"));
 
         List<LogInfo> logs = logService.selectLogList();
         log.info("日志列表查询成功");
 
         return ResultData.sucess("日志列表查询成功",logs);
+    }
+
+    /**
+     * todo 查询单条日志
+     */
+    @GetMapping("selectLogOne")
+    public ResultData selectLogById(@RequestParam(name = "id") String id){
+
+        LogInfo logInfo = logService.selectLogById(id);
+        log.info("查询单条日志成功");
+
+        return ResultData.sucess("查询单条日志成功",logInfo);
     }
 }

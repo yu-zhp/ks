@@ -10,7 +10,10 @@ import java.util.List;
  */
 
 public interface LogService {
+
     void saveLog(Object message);
 
     List<LogInfo> selectLogList();
+
+    LogInfo selectLogById(String id);
 }

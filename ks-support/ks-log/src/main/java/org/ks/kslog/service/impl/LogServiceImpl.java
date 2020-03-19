@@ -35,4 +35,9 @@ public class LogServiceImpl implements LogService {
     public List<LogInfo> selectLogList() {
         return mongoTemplate.findAll(LogInfo.class);
     }
+
+    @Override
+    public LogInfo selectLogById(String id) {
+        return mongoTemplate.findById(id,LogInfo.class);
+    }
 }

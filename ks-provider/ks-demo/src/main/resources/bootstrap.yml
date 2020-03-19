@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ks-log
+    name: ks-demo
   cloud:
     nacos:
       discovery:
@@ -16,4 +16,4 @@ spring:
 #        namespace: 5404de43-150f-4d4f-9ff0-c1e899b596be
 
 server:
-  port: 8082
+  port: 8083
