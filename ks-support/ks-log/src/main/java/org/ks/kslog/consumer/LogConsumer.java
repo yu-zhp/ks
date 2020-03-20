@@ -34,9 +34,9 @@ public class LogConsumer {
         if (kafkaMessage.isPresent()) {
             //得到Optional实例中的值
             Object message = kafkaMessage.get();
+            log.info("消费消息:{}" , message);
             //保存日志操作
             logService.saveLog(message);
-            System.err.println("消费消息:" + message);
         }
 
     }

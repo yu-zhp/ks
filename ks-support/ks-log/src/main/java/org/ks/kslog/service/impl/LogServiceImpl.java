@@ -6,6 +6,7 @@ import org.ks.kslog.entity.LogInfo;
 import org.ks.kslog.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,10 +26,11 @@ public class LogServiceImpl implements LogService {
     MongoTemplate mongoTemplate;
 
     @Override
+    @Async
     public void saveLog(Object message) {
-
         LogInfo logInfo = JSON.parseObject(String.valueOf(message),LogInfo.class);
         mongoTemplate.save(logInfo);
+        log.info("日志保存成功:{}",Thread.currentThread().getName());
     }
 
     @Override
