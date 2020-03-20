@@ -30,7 +30,8 @@ public class LogServiceImpl implements LogService {
     public void saveLog(Object message) {
         LogInfo logInfo = JSON.parseObject(String.valueOf(message),LogInfo.class);
         mongoTemplate.save(logInfo);
-        log.info("日志保存成功:{}",Thread.currentThread().getName());
+//        log.info("日志保存成功:{}",Thread.currentThread().getName());
+        System.out.println(String.format("日志保存成功:{%s}",Thread.currentThread().getName()));
     }
 
     @Override
