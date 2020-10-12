@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "ks",
+      "type": "java.lang.Object"
+    }
+  ],
+  "properties": [
+    {
+      "name": "ks.order.pull",
+      "type": "java.lang.Integer",
+      "description": "拉取",
+      "defaultValue": 86400
+    },
+    {
+      "name": "ks.order.push",
+      "type": "java.lang.Double",
+      "description": " 推送",
+      "defaultValue": 0.8
+    }
+  ]
+}
