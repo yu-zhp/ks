@@ -33,7 +33,7 @@ public class AsyncConfigurer extends AsyncConfigurerSupport {
         executor.setQueueCapacity(CORE_SIZE*20);
         //线程名称的前缀
         executor.setThreadNamePrefix("Ks-Log-Async-Executor-");
-        //关闭时等待任务结束
+        //调度器shutdown被调用时等待当前被调度的任务完成
         executor.setWaitForTasksToCompleteOnShutdown(true);
         //executor.setTaskDecorator(new ContextDecorator());
         // setRejectedExecutionHandler：当pool已经达到max size的时候，如何处理新任务
