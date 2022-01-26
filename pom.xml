@@ -26,6 +26,9 @@
     <modules>
         <module>ks-support</module>
         <module>ks-common</module>
+        <module>ks-api</module>
+        <module>ks-api</module>
+        <module>ks-provider</module>
     </modules>
 
     <!-- 项目相关的所有依赖，这里只在顶层POM做声明，具体引入细节在子项目中自行引入 -->
